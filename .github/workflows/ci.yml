@@ -1,0 +1,22 @@
+name: Student Management System CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify project files
+        run: |
+          echo "Checking Student Management System files..."
+          test -f index.html
+          test -f style.css
+          test -f README.md
+          echo "All required project files are present."
+          echo "CI verification completed successfully."
